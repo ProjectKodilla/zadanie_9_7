@@ -49,10 +49,10 @@ function newGame () {
   player.name = prompt('Please enter your name', 'imię gracza')
   if (player.name) {
     player.score = computer.score = 0
-    gameState = 'started';
-    setGameElements();
-
-    playerNameElem.innerHTML = player.name;
+    gameState = 'started'
+    setGameElements()
+    
+    playerNameElem.innerHTML = player.name
     setGamePoints()
   }
 }
@@ -88,21 +88,26 @@ function checkRoundWinner (playerPick, computerPick) {
     winnerIs = 'noone' // remis
   } else if (
     (computerPick == 'rock' && playerPick == 'scissors') ||
-        (computerPick == 'scissors' && playerPick == 'paper') ||
-        (computerPick == 'paper' && playerPick == 'rock')) {
+    (computerPick == 'scissors' && playerPick == 'paper') ||
+    (computerPick == 'paper' && playerPick == 'rock')) {
     winnerIs = 'computer'
   }
-
   if (winnerIs == 'player') {
     playerResultElem.innerHTML = 'Win!'
     player.score++
-    document.getElementById('js-playerPoints').innerHTML = player.score;
-
-  } else if (winnerIs == 'computer') {
+    document.getElementById('js-playerPoints').innerHTML = player.score
+      
+    } else if (winnerIs == 'computer') {
     computerResultElem.innerHTML = 'Win!'
     computer.score++
-    document.getElementById('js-computerPoints').innerHTML = computer.score;
-  }
+    document.getElementById('js-computerPoints').innerHTML = computer.score
+    }
+
+  if (player.score == 10) {
+    alert('Wygrałeś!')
+    } else if (computer.score == 10) {
+    alert('Wygrał Komputer!')
+    }
 }
 
 function playerPick (playerPick) {
