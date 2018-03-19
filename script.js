@@ -40,7 +40,6 @@ function setGameElements () {
   }
 }
 setGameElements()
-//console.log(setGameElements)
 
 var playerPointsElem = document.getElementById('js-playerPoints'),
   playerNameElem = document.getElementById('js-playerName'),
@@ -56,11 +55,9 @@ function newGame () {
     playerNameElem.innerHTML = player.name;
     setGamePoints()
   }
-  //console.log(setGamePoints)
 }
 
 function playerPick (playerPick) {
-  //console.log(playerPick)
 }
 
 var x = Math.random()
@@ -70,8 +67,6 @@ function getComputerPick () {
   var possiblePicks = ['rock', 'paper', 'scissors']
   return possiblePicks[Math.floor(Math.random() * 3)]
 }
-
-//console.log(playerPointsElem)
 
 var playerPickElem = document.getElementById('js-playerPick'),
   computerPickElem = document.getElementById('js-computerPick'),
@@ -101,9 +96,12 @@ function checkRoundWinner (playerPick, computerPick) {
   if (winnerIs == 'player') {
     playerResultElem.innerHTML = 'Win!'
     player.score++
+    document.getElementById('js-playerPoints').innerHTML = player.score;
+
   } else if (winnerIs == 'computer') {
     computerResultElem.innerHTML = 'Win!'
     computer.score++
+    document.getElementById('js-computerPoints').innerHTML = computer.score;
   }
 }
 
@@ -115,7 +113,6 @@ function playerPick (playerPick) {
 
   checkRoundWinner(playerPick, computerPick)
 }
-console.log(checkRoundWinner)
 function setGamePoints () {
   playerPointsElem.innerHTML = player.score
   computerPointsElem.innerHTML = computer.score
